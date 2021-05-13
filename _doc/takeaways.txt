@@ -1,0 +1,8 @@
+- components that consume APIs
+  - #TA4-01
+- dynamic API routes
+  - #TA4-02
+- access db from within the API routes
+  - #TA4-03
+- type the db access
+  - #TA4-04
