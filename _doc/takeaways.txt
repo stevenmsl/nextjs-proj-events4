@@ -1,8 +1,10 @@
-- components that consume APIs
-  - #TA4-01
-- dynamic API routes
-  - #TA4-02
-- access db from within the API routes
-  - #TA4-03
-- type the db access
-  - #TA4-04
+- define a context
+  - #TA4-05
+- define a context provider
+  - component that allow other UI components
+    to consume and change the state
+  - #TA4-06 
+- access state in the context
+  - #TA-07
+- using the Pick
+  - #TA-08

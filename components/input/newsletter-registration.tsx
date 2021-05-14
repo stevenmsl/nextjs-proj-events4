@@ -1,14 +1,22 @@
-import { FormEventHandler, useRef } from "react";
+import { FormEventHandler, useRef, useContext } from "react";
 import { NewsletterRegistrationReq } from "../../types";
 import classes from "./newsletter-registration.module.css";
+import NotificationContext from "../../store/notification-context";
 
-function NewsletterRegistration() {
+const NewsletterRegistration = () => {
+  const ctx = useContext(NotificationContext);
   const emailRef = useRef<HTMLInputElement>(null);
 
   const register: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();
 
     const req: NewsletterRegistrationReq = { email: emailRef.current.value };
+
+    ctx.show({
+      title: "Signing up",
+      message: "Registering for newsletter.",
+      status: "pending",
+    });
 
     /* #TA4-01 */
     const res = await fetch("/api/newsletter", {
@@ -20,7 +28,20 @@ function NewsletterRegistration() {
     });
 
     const data = await res.json();
-    console.log(data);
+
+    if (res.status === 201) {
+      ctx.show({
+        title: "Signing up",
+        message: "Registering for newsletter succeeded.",
+        status: "success",
+      });
+    } else {
+      ctx.show({
+        title: "Signing up",
+        message: data.message,
+        status: "error",
+      });
+    }
   };
 
   return (
@@ -40,6 +61,6 @@ function NewsletterRegistration() {
       </form>
     </section>
   );
-}
+};
 
 export default NewsletterRegistration;

@@ -2,7 +2,7 @@ import { ObjectId } from "mongodb";
 import { CommentModel, NewsletterRegistrationModel } from "../types";
 import { MongoClient } from "mongodb";
 export const mongdbUrl =
-  "mongodb+srv://dbTraining:<password>@cluster0.t0rrt.mongodb.net/events?retryWrites=true&w=majority";
+  "mongodb+srv://dbTraining:q4EkkkKnrbJQCiMb@cluster0.t0rrt.mongodb.net/events?retryWrites=true&w=majority";
 
 /* #TA4-04 */
 export interface CommentModelRaw extends CommentModel {
